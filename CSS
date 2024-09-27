@@ -1,0 +1,64 @@
+body{
+    background-color: #fff;
+}
+h1{
+    text-align: center;
+    font-size: 3rem;
+    position: relative;
+    top: 150px;
+}
+div input{ 
+    margin: 10px;
+    text-align: right;
+    height: 40px;
+    width: 300px;
+    font-size: 1.5em;
+    border: none;
+}
+.cal{
+    height: 600px;
+    width: 320px;
+    background-color: black;
+    border-radius: 20px;
+    padding: 10px;
+}
+#calculator{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+input{ 
+    margin: 10px;
+    margin-top: 30px;
+    text-align: right;
+    height: 30px;
+    width: 270px;
+}
+#key{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;  
+    place-items: center;
+    justify-content: space-evenly;
+    row-gap: 40px;
+    column-gap:30px;
+}
+button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5rem ;
+    font-weight: bold;
+    cursor: pointer;
+}
+#col{
+    color:orangered;
+}
+#qual{
+    background-color: orangered;
+    color: white;
+}
