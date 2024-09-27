@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div class="cal" id="calculator">
+        <input type="text" class="input-field" id="display">
+        <div id="key">
+            <button id="col" class="button" onclick="clearDisplay()">AC</button>
+            <button id="col" class="button" onclick="backspace()">DE</button>
+            <button id="col" class="button" onclick="addToDisplay('%')">%</button>
+            <button id="col" class="button" onclick="addToDisplay('/')">/</button>
+            <button class="button" onclick="addToDisplay('7')">7</button>
+            <button class="button" onclick="addToDisplay('8')">8</button>
+            <button class="button" onclick="addToDisplay('9')">9</button>
+            <button id="col" class="button" onclick="addToDisplay('*')">*</button>
+            <button class="button" onclick="addToDisplay('4')">4</button>
+            <button class="button" onclick="addToDisplay('5')">5</button>
+            <button class="button" onclick="addToDisplay('6')">6</button>
+            <button id="col" class="button" onclick="addToDisplay('-')">-</button>
+            <button class="button" onclick="addToDisplay('1')">1</button>
+            <button class="button" onclick="addToDisplay('2')">2</button>
+            <button class="button" onclick="addToDisplay('3')">3</button>
+            <button id="col" class="button" onclick="addToDisplay('+')">+</button>
+            <button class="button" onclick="addToDisplay('00')">00</button>
+            <button class="button" onclick="addToDisplay('0')">0</button>
+            <button id="col" class="button" onclick="addToDisplay('.')">.</button>
+            <button id="qual" class="button" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script>
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+      
+        }
+        function moduleDivision(dividend, divisor) {
+            if (divisor === 0) {
+                throw new Error("Division by zero is not allowed.");
+            }
+
+            // Ensure both dividend and divisor are numbers
+            if (typeof dividend !== "number" || typeof divisor !== "number") {
+                throw new TypeError("Both dividend and divisor must be numbers.");
+            }
+
+            // Perform module division
+            const result = dividend % divisor;
+
+            // Handle negative results for consistency
+            if (result < 0 && divisor > 0) {
+                result += divisor;
+            }
+
+            return result;
+            }
+        function backspace() {
+            const display = document.getElementById("display");
+            const currentValue = display.value;
+
+            if (currentValue.length > 0) {
+                display.value = currentValue.slice(0, -1);
+            }
+        }
+          
+    </script>
+</body>
+</html>
